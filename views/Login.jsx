@@ -26,7 +26,7 @@ const Login = (props) => {
         if (response && !response.success) {
             setError([response.msg])
         } else {
-            Alert.alert('Welcome')
+            ToastAndroid.show('Sign In success, Welcome!', ToastAndroid.LONG)
             props.navigation.navigate("Home")
         }
 
@@ -46,7 +46,7 @@ const Login = (props) => {
             <TextInput
                 placeholder='Password'
                 style={styles.input}
-                onChangeText={value => (inputValue('password', value))}/>
+                onChangeText={value => (inputValue('password', value))} secureTextEntry={true}/>
             <Button 
                 title="Login" 
                 onPress={validateAcc}
